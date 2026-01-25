@@ -671,6 +671,146 @@ gtag("config", "GT-NFX3NK7");
   }
 }
 
+/* seccion de firma de contrato */
+/* ===== FIRMA DE CONTRATO ===== */
+/* ===== FIRMA DE CONTRATO ===== */
+.firma-contrato{
+  background: #061a33; /* azul marino */
+  padding: 64px 0;
+}
+
+.firma-wrap{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===== ENCABEZADO ===== */
+/* ===== ENCABEZADO CENTRADO (SOLO DESKTOP) ===== */
+.firma-head{
+margin-bottom: 32px;
+color: #fff;
+text-align: center; /* <-- centra H2 y P */
+}
+
+
+.firma-head p{
+margin: 0 auto; /* <-- centra el bloque del párrafo */
+max-width: 720px; /* <-- mantiene el ancho bonito */
+}
+/* ===== GRID PRINCIPAL ===== */
+.firma-grid{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ===== TARJETAS ===== */
+.firma-video,
+.firma-img{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+}
+/* ===== CENTRAR VIDEO EN SU TARJETA (DESKTOP) ===== */
+.firma-video{
+  display: flex;
+  align-items: center;      /* centra vertical */
+  justify-content: center;  /* centra horizontal */
+}
+
+/* que el contenedor 16:9 ocupe el ancho completo y no se encoja */
+.firma-video .ratio-16x9{
+  width: 100%;
+}
+/* ===== VIDEO RESPONSIVE ===== */
+.ratio-16x9{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.ratio-16x9 iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===== VIDEO LOCAL ===== */
+.firma-video video{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===== IMAGEN ===== */
+.firma-img img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* evita que se corte */
+  padding: 24px;
+  background: rgba(255,255,255,0.06);; /* beige claro como en tu captura */
+}
+
+/* ===========================
+   TABLET
+=========================== */
+@media (max-width: 1024px){
+  .firma-contrato{
+    padding: 48px 0;
+  }
+
+  .firma-head h2{
+    font-size: 28px;
+  }
+
+  .firma-grid{
+    gap: 20px;
+  }
+}
+
+/* ===========================
+   TELÉFONO
+=========================== */
+@media (max-width: 768px){
+  .firma-head{
+    text-align: center;
+  }
+
+  .firma-head p{
+    margin: 0 auto;
+    font-size: 15px;
+  }
+
+  .firma-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .firma-img img{
+    padding: 16px;
+  }
+}
+
+/* ===========================
+   TELÉFONO CHICO
+=========================== */
+@media (max-width: 480px){
+  .firma-contrato{
+    padding: 36px 0;
+  }
+
+  .firma-head h2{
+    font-size: 22px;
+  }
+
+  .firma-head p{
+    font-size: 14px;
+  }
+}
 /** End Block Kit CSS: 72-3-34d2cc762876498c8f6be5405a48e6e2 **/
 
 		</style>
@@ -1204,9 +1344,7 @@ gtag("config", "GT-NFX3NK7");
 	<div class="jet-carousel__item-inner"><img decoding="async" src="banco (7).jpg" class="jet-carousel__item-img" alt="Chulería" loading="lazy"><div class="jet-carousel__content"></div></div>
 </div>
 
-<div class="jet-carousel__item">
-	<div class="jet-carousel__item-inner"><img decoding="async" src="banco (8).jpg" class="jet-carousel__item-img" alt="WhoanMa" loading="lazy"><div class="jet-carousel__content"></div></div>
-</div>
+
 
 <div class="jet-carousel__item">
 	<div class="jet-carousel__item-inner"><img decoding="async" src="banco (9).jpg" class="jet-carousel__item-img" alt="Diseño sin título" loading="lazy"><div class="jet-carousel__content"></div></div>
@@ -1359,6 +1497,46 @@ gtag("config", "GT-NFX3NK7");
 		</section>
 
 <br><br>
+<!-- FIRMA DE CONTRATO -->
+<section class="firma-contrato" id="firma-contrato">
+  <div class="firma-wrap">
+    <div class="firma-head">
+      <h2>Firma de contrato</h2>
+      <p>Revisa el video y firma tu contrato de forma clara y segura.</p>
+    </div>
+
+    <div class="firma-grid">
+      <!-- IZQUIERDA: VIDEO -->
+      <div class="firma-video">
+        <!-- Opción A: video local -->
+        <!-- <video controls playsinline preload="metadata" poster="poster.jpg">
+          <source src="video-firma.mp4" type="video/mp4" />
+          Tu navegador no soporta video HTML5.
+        </video> -->
+
+        <!-- Opción B: YouTube (recomendado si es link) -->
+        <div class="ratio-16x9">
+          <iframe
+            src="Contrato.mp4"
+            title="Firma de contrato"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- DERECHA: IMAGEN -->
+      <div class="firma-img">
+        <img
+          src="mifiel.jpg"
+          alt="Firma de contrato"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
 		<section class="elementor-section elementor-top-section elementor-element elementor-element-db08989 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible" data-id="db08989" data-element_type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[{&quot;_id&quot;:&quot;c55397b&quot;,&quot;jet_parallax_layout_image&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_tablet&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_mobile&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_speed&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:50,&quot;sizes&quot;:[]},&quot;jet_parallax_layout_type&quot;:&quot;scroll&quot;,&quot;jet_parallax_layout_direction&quot;:&quot;1&quot;,&quot;jet_parallax_layout_fx_direction&quot;:null,&quot;jet_parallax_layout_z_index&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x&quot;:50,&quot;jet_parallax_layout_bg_x_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y&quot;:50,&quot;jet_parallax_layout_bg_y_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size&quot;:&quot;auto&quot;,&quot;jet_parallax_layout_bg_size_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_animation_prop&quot;:&quot;transform&quot;,&quot;jet_parallax_layout_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;]}],&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;slideInRight&quot;}">
   <div class="elementor-container elementor-column-gap-no">
