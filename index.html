@@ -590,6 +590,43 @@ gtag("config", "GT-NFX3NK7");
   display: block !important;
 }
 /* ==========================================
+  ajusta la seccion de Ventajas de invertir en remates bancarios con nosotros
+  lo que hace qeu todas las filas o secciones esten bien ajustadas
+   ========================================== */
+
+/* 1) Quita spacers de ambas columnas (si aún existen) */
+.elementor-element-44530d4 .elementor-widget-spacer,
+.elementor-element-c95d59b .elementor-widget-spacer{
+  display:none !important;
+}
+
+/* 2) Mismo espacio ENTRE cada icon-box en ambas columnas */
+.elementor-element-44530d4 .elementor-widget-wrap,
+.elementor-element-c95d59b .elementor-widget-wrap{
+  display:flex !important;
+  flex-direction:column !important;
+  gap: 34px !important;              /* <- sube/baja este número */
+}
+
+/* 3) Evita que Elementor meta márgenes distintos por defecto */
+.elementor-element-44530d4 .elementor-widget-icon-box,
+.elementor-element-c95d59b .elementor-widget-icon-box{
+  margin: 0 !important;
+}
+
+/* 4) Igualar tipografía y altura de línea para que no “apriete” la derecha */
+.elementor-element-44530d4 .elementor-icon-box-description,
+.elementor-element-c95d59b .elementor-icon-box-description{
+  line-height: 1.55 !important;
+}
+
+/* 5) (Opcional) un poco de aire entre título y texto */
+.elementor-element-44530d4 .elementor-icon-box-title,
+.elementor-element-c95d59b .elementor-icon-box-title{
+  margin-bottom: 8px !important;
+}
+
+/* ==========================================
    PORTAFOLIO - RESPONSIVE 2 COLUMNAS (MÓVIL)
    Para que NO quede 1 abajo del otro
    ========================================== */
@@ -621,8 +658,21 @@ gtag("config", "GT-NFX3NK7");
 
 
 /* ===============================
-   TEXTO PROCESO – HTML PURO
+  BOTON DE  PROPIEDADES CONTENIDO EN PORQUE ELEGIRNOS
    =============================== */
+   /* ===== LINK SOLICITAR LISTADOS ===== */
+.listados-btn{
+    color: #0f4c5c;      /* tono más oscuro que tu fondo */
+    font-weight: 600;
+    text-decoration: underline;
+    transition: all .3s ease;
+}
+
+.listados-btn:hover{
+    color: #083944;      /* más oscuro al pasar el mouse */
+}
+
+
 
 /* ===============================
    TEXTO FINAL – DENTRO DEL BLOQUE BLANCO
@@ -1010,18 +1060,29 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
 				<i aria-hidden="true" class="far fa-comments"></i>				</span>
 			</div>
 			
-						<div class="elementor-icon-box-content">
+					<div class="elementor-icon-box-content">
 
-									<h3 class="elementor-icon-box-title">
-						<span  >
-							PROPIEDADES						</span>
-					</h3>
-				
-									<p class="elementor-icon-box-description">
-						Trabajamos directamente con instituciones bancarias y financieras, sin intermediarios.			</p>
-				
-			</div>
-			
+    <h3 class="elementor-icon-box-title">
+        <span>
+            PROPIEDADES
+        </span>
+    </h3>
+
+    <p class="elementor-icon-box-description">
+        Trabajamos con diversos bancos, administradores de cartera y recuperadoras, lo que nos permite ofrecer un amplio catálogo de oportunidades, desde derechos litigiosos y adjudicados hasta propiedades con posesión.
+    </p>
+
+    <!-- BOTÓN LISTADOS -->
+    <div class="listados-btn-wrapper">
+        <a href="https://wa.me/523343340062?text=Hola,%20quiero%20información%20sobre%20los%20listados%20disponibles%20según%20mi%20perfil%20de%20inversión."
+           target="_blank"
+           class="listados-btn">
+           Solicitar listados disponibles
+        </a>
+    </div>
+
+</div>
+
 		</div>
 						</div>
 				</div>
@@ -1080,7 +1141,7 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
 					</h3>
 				
 									<p class="elementor-icon-box-description">
-						Gestionamos todo el proceso hasta la escrituración y entrega de la posesión.	</p>
+					Gestionamos todo el proceso hasta la escrituración y entrega de la posesión, garantizado y respaldado mediante contrato.	</p>
 				
 			</div>
 			
@@ -1111,7 +1172,7 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
 					</h3>
 				
 									<p class="elementor-icon-box-description">
-						Explicamos de forma clara, despejando dudas que el cliente pueda tener sobre el proceso	</p>
+						Explicamos cada etapa del proceso y resolvemos tus dudas, con el respaldo de abogados especialistas en recuperación bancaria.	</p>
 				
 			</div>
 			
@@ -1220,6 +1281,55 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
 							<div class="elementor-spacer">
 			<div class="elementor-spacer-inner"></div>
 		</div>
+
+   <!-- =========================================
+/** ✅ INICIO BLOQUE: EXPERIENCIA (icon-box)
+    ✅ AGREGA/LÍNEA AQUÍ
+    ✅ TERMINA EN EL </div> FINAL DEL ICON-BOX
+    ⚠️ DESPUÉS VIENE: elementor-widget-spacer (separador)
+**/
+========================================= -->
+
+    </div>
+				</div>
+				<div class="elementor-element elementor-element-2cb170c elementor-widget elementor-widget-spacer" data-id="2cb170c" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-9712825 elementor-view-stacked elementor-position-left elementor-shape-circle elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="9712825" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span  class="elementor-icon">
+				<i aria-hidden="true" class="fas fa-laptop-code"></i>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h3 class="elementor-icon-box-title">
+						<span  >
+						PLAN DE FINANCIAMIENTO			</span>
+					</h3>
+				
+									<p class="elementor-icon-box-description">
+						Contamos con crédito de la empresa e inversionistas para que puedas liquidar a la entrega de la propiedad, brindándote el tiempo necesario para reunir el capital o pagar en parcialidades, similar a un crédito hipotecario, con plazos de hasta 15 años.
+*(Los gastos adicionales como notario, impuestos y servicios no están incluidos dentro del crédito.).</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d2b7f3e elementor-widget elementor-widget-spacer" data-id="d2b7f3e" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+
 						</div>
 				</div>
 					</div>
@@ -1782,7 +1892,7 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
             <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faq">
               <div class="accordion-body">
                 En caso de que el cliente decida no continuar con el proceso una vez iniciado,
-                se aplicará una <strong>penalización del 30%</strong>, la cual se encuentra
+                se aplicará una <strong>penalización del 10%</strong>, la cual se encuentra
                 <strong>contemplada y estipulada dentro del contrato</strong>.
                 <br><br>
                 Esta penalización cubre los gastos administrativos, legales y de gestión derivados del inicio del procedimiento.
@@ -1800,21 +1910,26 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
             </h2>
             <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faq">
                <div class="accordion-body">
-              En caso de incumplimiento en los plazos u obligaciones establecidos,
-              cualquier sanción se rige conforme a la legislación aplicable.<br><br>
+  En caso de incumplimiento en los plazos u obligaciones establecidos,
+  cualquier sanción se rige conforme a la legislación aplicable.<br><br>
 
-              De acuerdo con el <strong>Código Civil Federal</strong>, en sus
-              <strong>artículos 2104 y 2108</strong>, el incumplimiento de una obligación
-              puede generar responsabilidad por <strong>daños y perjuicios</strong>,
-              <br><br>
+  De acuerdo con el <strong>Código Civil Federal</strong>, en sus
+  <strong>artículos 2104 y 2108</strong>, el incumplimiento de una obligación
+  puede generar responsabilidad por <strong>daños y perjuicios</strong>.<br><br>
 
-              Adicionalmente, cuando el incumplimiento afecta una relación de prestación
-              de servicios, la <strong>Ley Federal de Protección al Consumidor</strong>,
-              en sus <strong>artículos 24 y 128</strong>, faculta a la
-              <strong>Secretaría de Economía</strong>, a través de la autoridad competente,
-              para imponer <strong>sanciones administrativas y multas</strong>,
-              conforme a la gravedad del incumplimiento.
-            </div>
+  Adicionalmente, cuando el incumplimiento afecta una relación de prestación
+  de servicios, la <strong>Ley Federal de Protección al Consumidor</strong>,
+  en sus <strong>artículos 24 y 128</strong>, faculta a la
+  <strong>Secretaría de Economía</strong>, a través de la autoridad competente,
+  para imponer <strong>sanciones administrativas y multas</strong>,
+  conforme a la gravedad del incumplimiento.<br><br>
+
+  Asimismo, el incumplimiento del contrato dará lugar a una
+  <strong>penalización equivalente al 15% del monto total pactado</strong>,
+  según lo estipulado en las cláusulas correspondientes del contrato,
+  sin perjuicio de las acciones legales adicionales que procedan conforme a derecho.
+</div>
+
 
             </div>
           </div>
@@ -1852,6 +1967,100 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
               </div>
             </div>
           </div>
+          <!-- 8 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q7">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#a7" aria-expanded="false" aria-controls="a7">
+                ¿Qué pasa si deseo acceder al préstamo de la empresa o inversionistas?
+              </button>
+            </h2>
+            <div id="a7" class="accordion-collapse collapse" aria-labelledby="q7" data-bs-parent="#faq">
+              <div class="accordion-body">
+                En caso de optar por el <strong>plan de financiamiento privado</strong>, un inversionista liquida
+                al titular de los derechos y se realiza el traslado correspondiente.<br><br>
+
+                El préstamo genera <strong>intereses únicamente durante el tiempo que dure el financiamiento</strong>,
+                es decir, desde que el inversionista liquida hasta el momento en que el cliente realiza la liquidación total.<br><br>
+
+                El plazo comienza a contar a partir de la formalización del préstamo y podrá liquidarse
+                anticipadamente conforme a las condiciones establecidas en el contrato.
+              </div>
+            </div>
+          </div>
+          <!-- 9 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#a6" aria-expanded="false" aria-controls="a6">
+                ¿En qué momento se pueden utilizar créditos hipotecarios?
+              </button>
+            </h2>
+            <div id="a6" class="accordion-collapse collapse" aria-labelledby="q6" data-bs-parent="#faq">
+              <div class="accordion-body">
+                En el <strong>primer pago</strong> no se aceptan créditos hipotecarios, ya que el inmueble
+                aún se encuentra en proceso legal o en etapa de adjudicación.<br><br>
+
+                Sin embargo, en el <strong>segundo pago</strong>, una vez que el juicio ha concluido,
+                los documentos están <strong>liberados y sin gravamen</strong>, y el traslado de derechos
+                está formalizado, ya es posible ejercer un <strong>crédito hipotecario tradicional</strong>,
+                ya que legalmente no existe impedimento para ello.
+              </div>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q7">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#a7" aria-expanded="false" aria-controls="a7">
+                ¿Por qué no se pueden ver por dentro las propiedades?
+              </button>
+            </h2>
+            <div id="a7" class="accordion-collapse collapse" aria-labelledby="q7" data-bs-parent="#faq">
+              <div class="accordion-body">
+                Las propiedades no pueden mostrarse por dentro debido a que se encuentran en 
+                <strong>proceso jurídico</strong> o bajo resguardo legal.<br><br>
+
+                Aunque el inmueble pudiera estar desocupado, ingresar sin autorización judicial 
+                constituye un <strong>acto ilegal</strong> que puede configurarse como allanamiento 
+                de morada o despojo, lo que podría derivar en responsabilidad penal conforme 
+                al <strong>Código Penal</strong> aplicable.<br><br>
+
+                El acceso formal solo puede realizarse una vez que el proceso legal concluye,
+                se obtiene la posesión y se realiza la entrega oficial conforme a derecho.
+              </div>
+            </div>
+          </div>
+
+          <!-- 11 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q8">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#a8" aria-expanded="false" aria-controls="a8">
+              ¿Por qué puede tardar el proceso y cuánto tiempo realmente dura?
+            </button>
+          </h2>
+          <div id="a8" class="accordion-collapse collapse" aria-labelledby="q8" data-bs-parent="#faq">
+            <div class="accordion-body">
+              El tiempo del proceso depende de la etapa jurídica en la que se encuentre el inmueble.
+              En algunos casos puede tomar <strong>hasta un año o un año y medio</strong>,
+              siempre que sea gestionado por abogados especialistas que den seguimiento puntual.<br><br>
+
+              Existen propiedades con <strong>posesión inmediata</strong> o adjudicaciones ya liberadas,
+              que pueden entregarse incluso en un plazo aproximado de un mes.<br><br>
+
+              La mayoría de las oportunidades con mayor beneficio (aproximadamente un 70%)
+              requieren concluir el proceso legal para su liberación.
+              Precisamente por ese factor de espera es que el inversionista puede acceder
+              a descuentos que pueden alcanzar hasta un <strong>70% por debajo del valor comercial</strong>.<br><br>
+
+              Conforme el inmueble se acerca a la etapa de posesión,
+              el margen de beneficio disminuye, pudiendo situarse alrededor del <strong>20% sobre el valor comercial</strong>,
+              ya que el riesgo y el tiempo de espera son menores.
+            </div>
+          </div>
+        </div>
 
         </div><!-- /accordion -->
 
