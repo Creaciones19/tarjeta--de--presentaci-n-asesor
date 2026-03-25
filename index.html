@@ -925,9 +925,23 @@ max-width: 720px; /* <-- mantiene el ancho bonito */
 /** End Block Kit CSS: 72-3-34d2cc762876498c8f6be5405a48e6e2 **/
 .lang select {
   padding: 5px;
-  background-color: #001f3f; /* azul marino */
-  color: white; /* texto en blanco para contraste */
+  background-color: #001f3f;
+  color: white;
   border: none;
+}
+
+/* 📲 Tablets problemáticos */
+@media (max-width: 768px) {
+  .lang select {
+    margin-top: 20px; /* 🔽 lo baja */
+  }
+}
+
+/* 📱 Celulares */
+@media (max-width: 480px) {
+  .lang select {
+    margin-top: 30px; /* 🔽 más abajo para que no tape texto */
+  }
 }
 		</style>
 
@@ -2110,12 +2124,149 @@ style="background: linear-gradient(180deg, #031220 0%, #041c32 55%, #062744 100%
      Sección final donde se refuerzan los beneficios
      y ventajas principales de la propuesta
      ================================================== -->
+<style>
 
+/* 🔵 BARRA GENERAL (PC NO SE TOCA) */
+.barra-superior {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0a1f44;
+  z-index: 9999;
+  padding: 15px 20px;
+}
+
+/* CONTENIDO */
+.contenido-barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* TEXTO */
+.texto-movimiento {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* MOVIMIENTO SOLO PC */
+@media (min-width: 769px) {
+  .texto-movimiento {
+    animation: moverTexto 20s linear infinite;
+  }
+}
+
+@keyframes moverTexto {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* BOTÓN */
+.btn-barra {
+  background: #00c853;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  flex-shrink: 0;
+  animation: titilar 1.5s infinite;
+}
+
+@keyframes titilar {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.btn-barra:hover {
+  background: #00e676;
+}
+
+/* 📱 CELULAR (ARREGLADO) */
+@media (max-width: 768px) {
+
+  .barra-superior {
+    height: 55px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contenido-barra {
+    width: 100%;
+    overflow: hidden; /* 👈 evita corte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .texto-movimiento {
+    font-size: 13px;
+    white-space: nowrap; /* 👈 mantiene línea */
+    display: inline-block;
+    animation: moverTexto 25s linear infinite; /* 👈 MISMO efecto */
+  }
+
+  .btn-barra {
+    position: absolute;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+}
+
+/* 📲 TABLET (ARREGLADO) */
+@media (max-width: 1024px) {
+
+  .contenido-barra {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .texto-movimiento {
+    font-size: 14px;
+    white-space: nowrap;
+    display: inline-block;
+    animation: moverTexto 22s linear infinite;
+  }
+
+}
+
+/* 🚨 EVITA QUE TAPE CONTENIDO */
+body {
+  padding-top: 90px;
+}
+
+</style>
 <br>
 <section class="elementor-section elementor-top-section elementor-element elementor-element-29ff636 elementor-section-height-min-height elementor-section-items-stretch elementor-section-boxed elementor-section-height-default" data-id="29ff636" data-element_type="section" id="contacto" data-settings="{&quot;jet_parallax_layout_list&quot;:[{&quot;jet_parallax_layout_image&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;_id&quot;:&quot;cc62910&quot;,&quot;jet_parallax_layout_image_tablet&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_image_mobile&quot;:{&quot;url&quot;:&quot;&quot;,&quot;id&quot;:&quot;&quot;,&quot;size&quot;:&quot;&quot;},&quot;jet_parallax_layout_speed&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:50,&quot;sizes&quot;:[]},&quot;jet_parallax_layout_type&quot;:&quot;scroll&quot;,&quot;jet_parallax_layout_direction&quot;:&quot;1&quot;,&quot;jet_parallax_layout_fx_direction&quot;:null,&quot;jet_parallax_layout_z_index&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x&quot;:50,&quot;jet_parallax_layout_bg_x_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_x_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y&quot;:50,&quot;jet_parallax_layout_bg_y_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_y_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size&quot;:&quot;auto&quot;,&quot;jet_parallax_layout_bg_size_tablet&quot;:&quot;&quot;,&quot;jet_parallax_layout_bg_size_mobile&quot;:&quot;&quot;,&quot;jet_parallax_layout_animation_prop&quot;:&quot;transform&quot;,&quot;jet_parallax_layout_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;]}],&quot;background_background&quot;:&quot;classic&quot;}">
-						<div class="elementor-container elementor-column-gap-default">
+					<div class="barra-superior">
+  <div class="contenido-barra">
+    <span class="texto-movimiento">
+      🔥 <strong>Liquida a la posesión</strong> • Paga hasta 48 mensualidades sin interés • Oportunidades con hasta 70% de descuento 🔥
+    </span>
+
+<a href="https://wa.me/523343340062?text=Hola%20quiero%20más%20información"class="btn-barra">
+      Más información
+    </a>
+  </div>
+</div>	
+  <div class="elementor-container elementor-column-gap-default">
 					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7c8f23c" data-id="7c8f23c" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
+        
 						<div class="elementor-element elementor-element-a4b1fe5 elementor-align-center elementor-widget elementor-widget-raven-heading" data-id="a4b1fe5" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="raven-heading.default">
 				<div class="elementor-widget-container">
 							<div class="raven-widget-wrapper"><h2 class="raven-heading raven-heading-h2"><span class="raven-heading-title ">¿Te interesa invertir en Remates Bancarios?</span></h2></div>
@@ -2206,11 +2357,13 @@ style="background: linear-gradient(180deg, #031220 0%, #041c32 55%, #062744 100%
 				</div>
 					</div>
 		</div>
+    
 					</div>
 		</section>
 				</div>
 
 		</main></div><script type="speculationrules">
+      
 	
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/jupiterx/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
@@ -2346,6 +2499,94 @@ var lottie_defaultAnimationUrl = {"url":"https://identificame.mx/wp-content/plug
 const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
 //# sourceURL=https://identificame.mx/wp-includes/js/wp-emoji-loader.min.js
 /* ]]> */
+</script>
+
+<!-- PROMO -->
+<div id="promo" class="promo" style="display:none;">
+  <div class="promo-content">
+    <p><strong>Liquida a la posesión</strong></p>
+    <p>Paga a 48 mensualidades sin interés</p>
+    <small>(Consulta términos y condiciones)</small>
+
+<a href="https://wa.me/523343340062?text=Hola%20quiero%20más%20información" class="btn">Más información</a>
+    <span class="cerrar" onclick="cerrarPromo()">✖</span>
+  </div>
+</div>
+
+<style>
+.promo {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  animation: fadeIn 0.8s ease;
+}
+
+.promo-content {
+  background: #001f3f;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.btn {
+  display: block;
+  margin-top: 10px;
+  background: #00c851;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.cerrar {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+
+/* 📱 Celular */
+@media (max-width: 480px) {
+  .promo {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .promo-content {
+    width: auto;
+    font-size: 14px;
+  }
+}
+</style>
+
+<script>
+// aparece después de 5 segundos en CADA visita
+setTimeout(() => {
+  document.getElementById("promo").style.display = "block";
+}, 5000);
+
+// solo se oculta en esa visita
+function cerrarPromo() {
+  document.getElementById("promo").style.display = "none";
+}
 </script>
 <script src="script.js"></script>
 </body></html>
