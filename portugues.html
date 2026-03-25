@@ -883,6 +883,35 @@ ESTE ES LA FORMA DEL CUADRO DE IDIMAS EN BLANCO CON LETRAS NEGRAS POR SI ME ABUR
     margin-top: 30px; /* 🔽 más abajo para que no tape texto */
   }
 }
+/* Quitar espacio blanco arriba */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Contenedor principal */
+.jupiterx-site,
+.jupiterx-main-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Header (muy importante) */
+.jupiterx-header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Secciones de Elementor */
+.elementor-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* A veces Elementor mete espacio aquí */
+.elementor-top-section {
+  margin-top: 0 !important;
+}
 
 		</style>
 
@@ -2517,5 +2546,8 @@ function cerrarPromo() {
   document.getElementById("promo").style.display = "none";
 }
 </script>
+<style>
+  
+</style>
 <script src="script.js"></script>
 </body></html>
