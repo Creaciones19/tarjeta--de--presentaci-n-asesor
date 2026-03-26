@@ -2537,5 +2537,270 @@ function cerrarPromo() {
   document.getElementById("promo").style.display = "none";
 }
 </script>
+<style>
+/* ===== BURBUJA DE CHAT ===== */
+.chat-bubble {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+background: linear-gradient(135deg, #11998e, #38ef7d);
+  color: #fff;
+  padding: 18px 22px;
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: 0 4px 16px rgba(100, 58, 131, 0.4);
+  z-index: 10000;
+  max-width: 320px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.chat-bubble.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* HEADER */
+.chat-bubble-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.chat-bubble-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f8de5d;
+}
+
+.chat-bubble-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chat-bubble-name {
+  font-weight: bold;
+  color: #f8de5d;
+}
+
+/* MENSAJE */
+.chat-bubble-message {
+  margin-top: 5px;
+}
+
+/* BOTÓN CERRAR */
+.chat-bubble-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* TYPING */
+.chat-bubble-typing {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.chat-bubble-typing.active {
+  display: block;
+}
+
+/* POPUP */
+.overlay {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 9998;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background: linear-gradient(135deg, #0f2027, #2c5364, #4facfe);
+  color: #fff;
+  padding: 25px;
+  z-index:9999;
+  border-radius:15px;
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+}
+
+/* BOTONES DEL POPUP */
+.popup button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  background: #ffffff;
+  color: #0f2027;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup button:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== BURBUJA ===== -->
+<div id="chatBubble" class="chat-bubble" onclick="togglePopup()">
+  
+  <button class="chat-bubble-close" onclick="closeChatBubble(event)">×</button>
+
+  <div class="chat-bubble-header">
+    <div class="chat-bubble-avatar">
+      <img src="https://ariapsa.com/wp-content/uploads/2025/11/ariapsa-gif.gif">
+    </div>
+    <span class="chat-bubble-name">Asesor Disponible</span>
+  </div>
+
+  <div class="chat-bubble-message" id="bubbleMessage">
+    ¡Hola! 👋 ¿Qué servicios estás buscando hoy?
+  </div>
+
+  <div class="chat-bubble-typing" id="bubbleTyping">
+    Escribiendo...
+  </div>
+
+</div>
+
+<!-- ===== POPUP ===== -->
+<div id="overlay" class="overlay" onclick="closePopup()"></div>
+
+<div id="popup" class="popup">
+  <button onclick="closePopup()" style="float:right;">✕</button>
+
+  <h3>Contáctanos por WhatsApp</h3>
+  <p>Selecciona una opción:</p>
+
+  <button onclick="enviarOpcion(1)" style="width:100%; margin:5px; padding:10px;">
+    Invertir en remates bancarios
+  </button>
+
+  <button onclick="enviarOpcion(2)" style="width:100%; margin:5px; padding:10px;">
+    Cesión de derechos o servicio completo
+  </button>
+
+  <button onclick="enviarOpcion(3)" style="width:100%; margin:5px; padding:10px;">
+    Opciones disponibles en mi zona
+  <button onclick="enviarOpcion(4)" style="width:100%; margin:5px; padding:10px;">
+  Más información...
+</button>
+
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  var popup = document.getElementById('popup');
+  var overlay = document.getElementById('overlay');
+  var chatBubble = document.getElementById('chatBubble');
+  var bubbleMessage = document.getElementById('bubbleMessage');
+  var bubbleTyping = document.getElementById('bubbleTyping');
+
+  var messageIndex = 0;
+  var bubbleTimeout;
+
+  var messages = [
+ '¡Hola! 👋 ¿Estás buscando invertir en remates bancarios?',
+'💼 ¿Buscas solo cesión de derechos o el servicio completo?',
+'💰 ¿Te gustaría pagar hasta en 48 meses?',
+'📩 Envíanos un mensaje y recibe opciones disponibles'
+  ];
+
+  window.togglePopup = function() {
+    popup.style.display = 'block';
+    overlay.style.display = 'block';
+    chatBubble.classList.remove('show');
+  };
+
+  window.closePopup = function() {
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+  };
+
+  window.closeChatBubble = function(e) {
+    e.stopPropagation();
+    chatBubble.classList.remove('show');
+    clearTimeout(bubbleTimeout);
+  };
+
+  function startMessages() {
+    bubbleTimeout = setTimeout(function() {
+      if (messageIndex < messages.length - 1) {
+        bubbleTyping.style.display = 'block';
+
+        setTimeout(function() {
+          messageIndex++;
+          bubbleMessage.textContent = messages[messageIndex];
+          bubbleTyping.style.display = 'none';
+          startMessages();
+        }, 1500);
+      }
+    }, 3000);
+  }
+
+  function showBubble() {
+    chatBubble.classList.add('show');
+    messageIndex = 0;
+    bubbleMessage.textContent = messages[0];
+    startMessages();
+  }
+
+  setTimeout(showBubble, 2000);
+
+});
+
+// WHATSAPP
+function enviarOpcion(opcion) {
+
+  var numero = '5213343340062';
+
+  var mensajes = [
+'¡Hola! 👋 ¿Estás buscando invertir en remates bancarios?',
+'💰 ¿Te interesan solo derechos o el servicio completo? ¿Te gustaría pagar hasta en 48 meses sin intereses?',
+'📩 Escríbenos y recibe opciones disponibles en tu zona'
+  ];
+
+  var mensaje = mensajes[opcion - 1];
+
+  var url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensaje);
+
+  window.open(url, '_blank');
+}
+</script>
 <script src="script.js"></script>
 </body></html>
