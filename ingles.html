@@ -2520,6 +2520,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   top: 5px;
   right: 10px;
   cursor: pointer;
+   background:whitesmoke;
+color: black ;
 }
 
 @keyframes fadeIn {
@@ -2822,15 +2824,16 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
     <div class="chat-bubble-avatar">
       <img src="https://ariapsa.com/wp-content/uploads/2025/11/ariapsa-gif.gif">
     </div>
-<span class="chat-bubble-name">I can help you!</span>
+    <span class="chat-bubble-name">I can help you!</span>
   </div>
 
   <div class="chat-bubble-message" id="bubbleMessage">
-    Hello! 👋 What services are you looking for today?
+        Hello! 👋 What services are you looking for today?
+
   </div>
 
   <div class="chat-bubble-typing" id="bubbleTyping">
-    Typing...
+  Typing...
   </div>
 
 </div>
@@ -2839,21 +2842,23 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
 <div id="overlay" class="overlay" onclick="closePopup()"></div>
 
 <div id="popup" class="popup">
-  <button onclick="closePopup()" style="float:right;">✕</button>
-
-  <h3>Contact us on WhatsApp</h3>
-  <p>Select an option:</p>
+<button class="btn-cerrar" onclick="closePopup()">✕</button>
+<h3>Contact us on WhatsApp</h3>
+<p>Select an option:</p>
 <button onclick="enviarOpcion(1)">📍 I am interested in investing in bank foreclosures</button>
-<button onclick="enviarOpcion(2)">🏡 I am interested in investing in assignment of rights</button>
-<button onclick="enviarOpcion(3)">📍 I am interested in investing in adjudicated property</button>
-<button onclick="enviarOpcion(4)">💰 I am interested in investing in property with possession</button>
-<button onclick="enviarOpcion(5)">👤 I am interested in speaking with an advisor</button>
-<button onclick="enviarOpcion(6)">📅 I am interested in scheduling an appointment</button>
-<button>More information...</button>
 
+<button onclick="enviarOpcion(2)">🏡  I am interested in investing in assignment of rights</button>
+
+<button onclick="enviarOpcion(3)">📍 I am interested in investing in adjudicated property</button>
+
+<button onclick="enviarOpcion(4)">💰 I am interested in investing in property with possession</button>
+
+<button onclick="enviarOpcion(5)">👤 I am interested in speaking with an advisor</button>
+
+<button onclick="enviarOpcion(6)">📅 I am interested in scheduling an appointment</button>
+More information...
 </div>
 
-<!-- ===== SCRIPT ===== -->
 <!-- ===== SCRIPT ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -2872,6 +2877,7 @@ document.addEventListener("DOMContentLoaded", function() {
 '💼 Are you interested in rights transfer only or full service?',
 '💰 Would you like to pay up to 48 months?',
 '📩 Send us a message and receive available options'
+
 
   ];
 
@@ -2928,12 +2934,12 @@ function enviarOpcion(opcion) {
   var numero = '5213343340062';
 
   var mensajes = {
-     1: '📍 I am interested in investing in bank foreclosures',
-  2: '🏡 I am interested in investing in assignment of rights',
-  3: '📍 I am interested in investing in adjudicated property',
-  4: '💰 I am interested in investing in property with possession',
-  5: '👤 I am interested in speaking with an advisor',
-  6: '📅 I am interested in scheduling an appointment'
+      1: '📍 I am interested in investing in bank foreclosures',
+      2: '🏡 I am interested in investing in assignment of rights',
+      3: '📍 I am interested in investing in adjudicated property',
+      4: '💰 I am interested in investing in property with possession',
+      5: '👤 I am interested in speaking with an advisor',
+      6: '📅 I am interested in scheduling an appointment'
   };
 
   var mensaje = mensajes[opcion];

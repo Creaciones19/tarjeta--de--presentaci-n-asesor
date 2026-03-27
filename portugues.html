@@ -2507,6 +2507,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   top: 5px;
   right: 10px;
   cursor: pointer;
+   background:whitesmoke;
+color: black ;
 }
 
 @keyframes fadeIn {
@@ -2809,11 +2811,11 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
     <div class="chat-bubble-avatar">
       <img src="https://ariapsa.com/wp-content/uploads/2025/11/ariapsa-gif.gif">
     </div>
-<span class="chat-bubble-name">Posso te ajudar!</span>
+    <span class="chat-bubble-name">Posso te ajudar!</span>
   </div>
 
   <div class="chat-bubble-message" id="bubbleMessage">
-    Olá! 👋 Que tipo de serviço você está procurando hoje?
+   Olá! 👋 Que tipo de serviço você está procurando hoje?
   </div>
 
   <div class="chat-bubble-typing" id="bubbleTyping">
@@ -2822,26 +2824,27 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
 
 </div>
 
+<!-- ===== POPUP ===== -->
 <div id="overlay" class="overlay" onclick="closePopup()"></div>
 
 <div id="popup" class="popup">
-  <button onclick="closePopup()" style="float:right;">✕</button>
+<button class="btn-cerrar" onclick="closePopup()">✕</button>
+<h3>Fale conosco pelo WhatsApp</h3>
+<p>Selecione uma opção:</p>
+<button onclick="enviarOpcion(1)">📍Tenho interesse em investir em imóveis de leilão bancário</button>
 
-  <h3>Fale conosco pelo WhatsApp</h3>
-  <p>Selecione uma opção:</p>
-
-  <button onclick="enviarOpcion(1)">📍 Tenho interesse em investir em imóveis de leilão bancário</button>
 <button onclick="enviarOpcion(2)">🏡 Tenho interesse em investir em cessão de direitos</button>
-<button onclick="enviarOpcion(3)">📍 Tenho interesse em investir em propriedade adjudicada</button>
-<button onclick="enviarOpcion(4)">💰 Tenho interesse em investir em propriedade com posse</button>
-<button onclick="enviarOpcion(5)">👤 Tenho interesse em falar com um consultor</button>
-<button onclick="enviarOpcion(6)">📅 Tenho interesse em agendar uma reunião</button>
-<button>Mais informações...</button>
 
+<button onclick="enviarOpcion(3)">📍Tenho interesse em investir em propriedade adjudicada</button>
 
+<button onclick="enviarOpcion(4)">💰Tenho interesse em investir em propriedade com posse</button>
+
+<button onclick="enviarOpcion(5)">👤 Me interesa hablar con un asesor</button>
+
+<button onclick="enviarOpcion(6)">📅Tenho interesse em agendar uma reunião</button>
+Mais informaçõe...
 </div>
 
-<!-- ===== SCRIPT ===== -->
 <!-- ===== SCRIPT ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -2856,10 +2859,11 @@ document.addEventListener("DOMContentLoaded", function() {
   var bubbleTimeout;
 
   var messages = [
- 'Olá! 👋 Você está procurando investir em imóveis de leilão bancário?',
+   'Olá! 👋 Você está procurando investir em imóveis de leilão bancário?',
 '💼 Você tem interesse apenas na transferência de direitos ou em serviço completo?',
 '💰 Gostaria de pagar em até 48 meses?',
 '📩 Envie-nos uma mensagem e receba as opções disponíveis'
+
   ];
 
   // Función para mostrar popup
