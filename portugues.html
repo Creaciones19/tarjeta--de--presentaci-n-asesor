@@ -2609,15 +2609,19 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
 /* BOTÓN CERRAR */
 .chat-bubble-close {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 20px;
-  height: 20px;
-  background: rgba(0,0,0,0.3);
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background: rgba(0,0,0,0.4);
   color: #fff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
 }
 
 /* TYPING */
@@ -2647,36 +2651,149 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
 .popup {
   display: none;
   position: fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: linear-gradient(135deg, #0f2027, #2c5364, #4facfe);
   color: #fff;
   padding: 25px;
-  z-index:9999;
-  border-radius:15px;
+  z-index: 9999;
+  border-radius: 15px;
   width: 90%;
   max-width: 320px;
+
   text-align: center;
+
+  /* 🔥 ESTO ES LO IMPORTANTE */
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-/* BOTONES DEL POPUP */
-.popup button {
-  width: 100%;
+.popup button:not(.btn-cerrar) {
   margin: 8px 0;
-  padding: 12px;
   background: #ffffff;
   color: #0f2027;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+
+  /* 🔥 CLAVES PARA QUE TODOS SE VEAN IGUAL */
+  width: 100%;
+  height: 65px;              /* MISMA ALTURA */
+  display: flex;
+  align-items: center;       /* centra vertical */
+  justify-content: center;   /* centra horizontal */
+  text-align: center;
+  padding: 10px;
+  line-height: 1.2;
+}
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 26px;
+  height: 26px;
+
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+/* BURBUJA COMPACTA */
+.chat-bubble {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: 0 4px 16px rgba(100, 58, 131, 0.4);
+  z-index: 10000;
+  max-width: 220px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.popup button:hover {
-  background: #f1f1f1;
-  transform: scale(1.05);
+/* Avatar más pequeño */
+.chat-bubble-avatar {
+  width: 35px;
+  height: 35px;
+}
+
+.chat-bubble-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Nombre más pequeño */
+.chat-bubble-name {
+  font-weight: bold;
+  color: #f8de5d;
+  font-size: 12px;
+}
+
+/* Responsive avanzado */
+@media (max-width: 1024px) {
+  .chat-bubble {
+    max-width: 200px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+  .chat-bubble-avatar {
+    width: 30px;
+    height: 30px;
+  }
+  .chat-bubble-name {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-bubble {
+    max-width: 180px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+  .chat-bubble-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .chat-bubble-name {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-bubble {
+    max-width: 160px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+  .chat-bubble-avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .chat-bubble-name {
+    font-size: 9px;
+  }
 }
 </style>
 </head>
@@ -2692,7 +2809,7 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
     <div class="chat-bubble-avatar">
       <img src="https://ariapsa.com/wp-content/uploads/2025/11/ariapsa-gif.gif">
     </div>
-<span class="chat-bubble-name">Consultor Disponível</span>
+<span class="chat-bubble-name">Posso te ajudar!</span>
   </div>
 
   <div class="chat-bubble-message" id="bubbleMessage">
@@ -2713,23 +2830,18 @@ background: linear-gradient(135deg, #11998e, #38ef7d);
   <h3>Fale conosco pelo WhatsApp</h3>
   <p>Selecione uma opção:</p>
 
-  <button onclick="enviarOpcion(1)" style="width:100%; margin:5px; padding:10px;">
-    Investir em imóveis de leilão bancário
-  </button>
-
-  <button onclick="enviarOpcion(2)" style="width:100%; margin:5px; padding:10px;">
-    Cessão de direitos ou serviço completo
-  </button>
-
-  <button onclick="enviarOpcion(3)" style="width:100%; margin:5px; padding:10px;">
-    Opções disponíveis na minha região
-  <button onclick="enviarOpcion(4)" style="width:100%; margin:5px; padding:10px;">
-  Mais informações...
-</button>
+  <button onclick="enviarOpcion(1)">📍 Tenho interesse em investir em imóveis de leilão bancário</button>
+<button onclick="enviarOpcion(2)">🏡 Tenho interesse em investir em cessão de direitos</button>
+<button onclick="enviarOpcion(3)">📍 Tenho interesse em investir em propriedade adjudicada</button>
+<button onclick="enviarOpcion(4)">💰 Tenho interesse em investir em propriedade com posse</button>
+<button onclick="enviarOpcion(5)">👤 Tenho interesse em falar com um consultor</button>
+<button onclick="enviarOpcion(6)">📅 Tenho interesse em agendar uma reunião</button>
+<button>Mais informações...</button>
 
 
 </div>
 
+<!-- ===== SCRIPT ===== -->
 <!-- ===== SCRIPT ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -2744,34 +2856,39 @@ document.addEventListener("DOMContentLoaded", function() {
   var bubbleTimeout;
 
   var messages = [
-   'Olá! 👋 Você está procurando investir em imóveis de leilão bancário?',
-'💼 Você busca apenas cessão de direitos ou o serviço completo?',
+ 'Olá! 👋 Você está procurando investir em imóveis de leilão bancário?',
+'💼 Você tem interesse apenas na transferência de direitos ou em serviço completo?',
 '💰 Gostaria de pagar em até 48 meses?',
-'📩 Envie uma mensagem e receba opções disponíveis'
+'📩 Envie-nos uma mensagem e receba as opções disponíveis'
   ];
 
+  // Función para mostrar popup
   window.togglePopup = function() {
     popup.style.display = 'block';
     overlay.style.display = 'block';
-    chatBubble.classList.remove('show');
+    chatBubble.classList.remove('show'); // oculta burbuja
   };
 
+  // Función para cerrar popup y mostrar de nuevo burbuja
   window.closePopup = function() {
     popup.style.display = 'none';
     overlay.style.display = 'none';
+    chatBubble.classList.add('show'); // vuelve a mostrar la burbuja
   };
 
+  // Función para cerrar solo la burbuja
   window.closeChatBubble = function(e) {
-    e.stopPropagation();
-    chatBubble.classList.remove('show');
+    e.stopPropagation(); // evita que se abra popup
+    bubbleMessage.style.display = 'none';
+    bubbleTyping.style.display = 'none';
     clearTimeout(bubbleTimeout);
   };
 
+  // Función para mostrar mensajes automáticos
   function startMessages() {
     bubbleTimeout = setTimeout(function() {
       if (messageIndex < messages.length - 1) {
         bubbleTyping.style.display = 'block';
-
         setTimeout(function() {
           messageIndex++;
           bubbleMessage.textContent = messages[messageIndex];
@@ -2782,6 +2899,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3000);
   }
 
+  // Función para mostrar burbuja al cargar la página
   function showBubble() {
     chatBubble.classList.add('show');
     messageIndex = 0;
@@ -2793,23 +2911,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-// WHATSAPP
 function enviarOpcion(opcion) {
-
   var numero = '5213343340062';
 
-  var mensajes = [
-    'Olá! Quero investir em imóveis de leilão bancário',
-    'Quero saber sobre serviço completo e pagamentos',
-    'Quero ver opções disponíveis na minha região',
-    'Quero mais informações sobre remates bancários'
-  ];
+  var mensajes = {
+    1: '📍 Estou interessado em investir em leilões bancários',
+2: '🏡 Estou interessado em investir na cessão de direitos',
+3: '📍 Estou interessado em investir em propriedade adjudicada',
+4: '💰 Estou interessado em investir em propriedade com posse',
+5: '👤 Estou interessado em falar com um assessor',
+6: '📅 Estou interessado em agendar uma consulta'
+  };
 
-  var mensaje = mensajes[opcion - 1];
+  var mensaje = mensajes[opcion];
+
+  // 🔥 ESTO EVITA "undefined"
+  if (!mensaje) return;
 
   var url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensaje);
 
   window.open(url, '_blank');
+
+  closePopup();
 }
 </script>
 <script src="script.js"></script>
