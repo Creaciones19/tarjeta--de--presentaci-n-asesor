@@ -917,6 +917,47 @@ body {
 .elementor-top-section {
   margin-top: 0 !important;
 }
+#cabepom-texto{
+    font-size:120px;
+    font-weight:900;
+    color:white;
+    text-align:center;
+    letter-spacing:8px;
+}
+
+.letra{
+    display:inline-block;
+
+    opacity:0;
+    filter:blur(10px);
+
+    transform:
+        translateY(30px)
+        scale(.9);
+
+    animation: elegante .7s ease forwards;
+}
+
+@keyframes elegante{
+
+    0%{
+        opacity:0;
+        filter:blur(10px);
+
+        transform:
+            translateY(30px)
+            scale(.9);
+    }
+
+    100%{
+        opacity:1;
+        filter:blur(0px);
+
+        transform:
+            translateY(0px)
+            scale(1);
+    }
+}
 
 		</style>
 
@@ -953,6 +994,35 @@ body {
 				</div>
 				<div class="elementor-element elementor-element-1805bc3 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="1805bc3" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
+           <!-- TEXTO ANIMADO -->
+               <h1 id="cabepom-texto"></h1>
+
+<script>
+const texto = "CABEPON";
+const contenedor = document.getElementById("cabepom-texto");
+
+let i = 0;
+
+function escribir(){
+
+    if(i < texto.length){
+
+        const span = document.createElement("span");
+
+        span.textContent = texto[i];
+
+        span.classList.add("letra");
+
+        contenedor.appendChild(span);
+
+        i++;
+
+        setTimeout(escribir, 180);
+    }
+}
+
+escribir();
+</script>
 					<h2 class="elementor-heading-title elementor-size-default">Você quer comprar um imóvel para morar ou para investir?</h2></div>
 				</div>
 				<div class="elementor-element elementor-element-6ca58eb elementor-widget elementor-widget-spacer" data-id="6ca58eb" data-element_type="widget" data-widget_type="spacer.default">
